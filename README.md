@@ -9,5 +9,8 @@ ALPHA SYSTEM
 - Optimized Update System, menggunakan sistem interval dan cooldown untuk mencegah spam SQL query dan menjaga performa server tetap stabil.
 - Persistent Discord Webhook, leaderboard akan di-update ke Discord menggunakan sistem edit message (bukan spam message baru), sehingga lebih rapi dan efisien.
 - Rank & Medal System, leaderboard dilengkapi dengan sistem ranking otomatis (🥇🥈🥉) berdasarkan total playtime player.
+- Auto edit message, tidak spam kirim webhook, jadi 1 pesan webhook di edit setiap berapa detik sekali atau setiap ada perubahan.
 
 Exclusive Website : http://exclusiverp.duckdns.org/
+
+![Show Case](https://cdn.discordapp.com/attachments/1487343201374437407/1500759398816026826/Screenshot_3350.png?ex=69f99a9b&is=69f8491b&hm=4224956763adcd325d0dc50b654ba995fb22b46ec79ce584fec7c2bb44fd64af&)
