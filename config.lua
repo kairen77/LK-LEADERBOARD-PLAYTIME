@@ -8,7 +8,7 @@ Config.TopPlayingTime = 10
 -- =========================
 -- 🌐 DISCORD WEBHOOK
 -- =========================
-Config.Webhooks = "https://discord.com/api/webhooks/1500416690343645254/M-YXqc2ywsho49obpQiqRpqUL1UAaz4qCM9VQ-McAuE3Vj7ZNZSabdZU_SysxBAhBd2E"
+Config.Webhooks = "XXXXXX"
 
 -- ⚠️ auto save message id (jangan isi manual)
 Config.WebhookMessageId = nil
