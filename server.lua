@@ -9,10 +9,7 @@ local RESOURCE_NAME = GetCurrentResourceName()
 local WEBHOOK_FILE = "webhook.json"
 
 
-
--- =========================
--- 🔥 ONLY FILTER (CITIZENID BLACKLIST)
--- =========================
+-- FILTER SYSTEM (KALAU EVENT KHUSUS WARGA, BLACKLIST CITIZENID ADMIN BIAR TIDAK MASUK LEADERBOARD) 
 local BLACKLIST_CITIZENID = {
     ["AGR67206"] = true,
     ["AXK93169"] = true,
@@ -33,9 +30,8 @@ local BLACKLIST_CITIZENID = {
     ["WSU98851"] = true,
 }
 
--- =========================
--- 💾 WEBHOOK SAVE/LOAD
--- =========================
+
+-- WEBHOOK SAVE/LOAD
 local function LoadWebhookId()
     local file = LoadResourceFile(RESOURCE_NAME, WEBHOOK_FILE)
     if file then
@@ -51,9 +47,8 @@ local function SaveWebhookId(id)
     SaveResourceFile(RESOURCE_NAME, WEBHOOK_FILE, json.encode({ id = id }), -1)
 end
 
--- =========================
--- 🔎 PLAYER
--- =========================
+
+-- PLAYER
 local function GetPlayer(src)
     return QBCore.Functions.GetPlayer(src)
 end
@@ -64,9 +59,8 @@ local function GetName(Player)
     return (c.firstname or "Unknown") .. " " .. (c.lastname or "")
 end
 
--- =========================
--- ⏱️ FORMAT TIME
--- =========================
+
+-- FORMAT TIME
 local function FormatTime(sec)
     sec = tonumber(sec) or 0
     local h = math.floor(sec / 3600)
@@ -79,9 +73,9 @@ local function FormatTime(sec)
     end
 end
 
--- =========================
--- 🧠 SAFE AFK RESET FUNCTION
--- =========================
+
+-- SAFE AFK RESET FUNCTION
+
 local function ResetAFK(src)
     if playerActivity[src] then
         playerActivity[src].isAFK = false
@@ -89,9 +83,8 @@ local function ResetAFK(src)
     end
 end
 
--- =========================
--- 🧍 AFK TRACKING
--- =========================
+
+-- AFK TRACKING
 RegisterNetEvent("playtime:activity", function(moved)
     local src = source
 
@@ -110,9 +103,8 @@ RegisterNetEvent("playtime:activity", function(moved)
     end
 end)
 
--- =========================
--- 🔄 AFK CHECK LOOP
--- =========================
+
+-- AFK CHECK LOOP
 CreateThread(function()
     while true do
         Wait(Config.AFKCheckInterval or 5000)
@@ -133,9 +125,8 @@ CreateThread(function()
     end
 end)
 
--- =========================
--- 🌐 WEBHOOK (UNCHANGED)
--- =========================
+
+-- WEBHOOK FUNCTION
 local function SendWebhook(desc, totalPlayers, totalTime)
     local payload = {
         username = "EXCLUSIVE ROLEPLAY",
@@ -186,9 +177,7 @@ local function SendWebhook(desc, totalPlayers, totalTime)
     end
 end
 
--- =========================
--- 📥 LOAD PLAYER (UNCHANGED)
--- =========================
+-- LOAD PLAYER 
 local function LoadPlayer(src)
     local Player = GetPlayer(src)
     if not Player then return end
@@ -212,9 +201,8 @@ local function LoadPlayer(src)
     end
 end
 
--- =========================
--- 💾 SAVE PLAYER (UNCHANGED)
--- =========================
+
+-- SAVE PLAYER
 local function SavePlayer(src)
     local Player = GetPlayer(src)
     if not Player or not playerData[src] then return end
@@ -229,9 +217,7 @@ local function SavePlayer(src)
     )
 end
 
--- =========================
--- 📊 LEADERBOARD (ONLY FILTER FIXED)
--- =========================
+-- LEADERBOARD
 local function UpdateLeaderboard(force)
     local now = GetGameTimer()
 
@@ -260,10 +246,10 @@ local function UpdateLeaderboard(force)
                 local row = result[i]
                 local time = tonumber(row.time) or 0
 
-                -- ✅ NORMALIZE CITIZENID (FIXED)
+                -- NORMALIZE CITIZENID
                 local cid = string.upper((row.identifier or ""):gsub("%s+", ""))
 
-                -- 🔥 FILTER
+                -- FILTER
                 if not BLACKLIST_CITIZENID[cid] then
                     rank = rank + 1
                     totalTime = totalTime + time
@@ -290,17 +276,14 @@ local function UpdateLeaderboard(force)
     )
 end
 
--- =========================
--- 🎮 JOIN
--- =========================
+
+-- JOIN
 RegisterNetEvent('QBCore:Server:PlayerLoaded', function(Player)
     LoadPlayer(Player.PlayerData.source)
     UpdateLeaderboard(true)
 end)
 
--- =========================
--- 🚪 QUIT
--- =========================
+-- QUIT
 AddEventHandler('playerDropped', function()
     local src = source
 
@@ -311,9 +294,8 @@ AddEventHandler('playerDropped', function()
     UpdateLeaderboard(true)
 end)
 
--- =========================
--- 🔄 LOAD EXISTING
--- =========================
+
+-- LOAD EXISTING
 CreateThread(function()
     Wait(2000)
 
@@ -326,9 +308,8 @@ CreateThread(function()
     UpdateLeaderboard(true)
 end)
 
--- =========================
--- ⏳ PLAYTIME LOOP
--- =========================
+
+-- PLAYTIME LOOP
 CreateThread(function()
     while true do
         Wait(Config.AddTimeInterval * 1000)
@@ -347,9 +328,8 @@ CreateThread(function()
     end
 end)
 
--- =========================
--- 💾 AUTO SAVE
--- =========================
+
+-- AUTO SAVE
 CreateThread(function()
     while true do
         Wait(Config.AutoSaveInterval)
@@ -360,9 +340,7 @@ CreateThread(function()
     end
 end)
 
--- =========================
--- 🚀 START
--- =========================
+-- START
 CreateThread(function()
     Wait(2000)
     UpdateLeaderboard(true)
