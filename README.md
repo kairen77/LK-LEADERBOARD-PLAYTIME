@@ -1,16 +1,93 @@
-# leaderbaord-playingtime
-SCRIPT INI DIKEMBANGKAN TERINSPIRASI DARI PSR-PLAYINGTIME, DENGAN PENYESUAIAN DAN INOVASI SENDIRI. TUJUAN DARI PERUBAHAN FULL INI ADALAH UNTUK MENCIPTAKAN VERSI YANG LEBIH STABIL, OPTIMAL, DAN LEBIH MUDAH DIPAHAMI SERTA DIKEMBANGKAN KE DEPANNYA.
+# 🏆 leaderboard-playingtime
 
-ALPHA SYSTEM
-- Anti AFK System, jika player diam selama 10 menit maka akan dianggap AFK dan playtime otomatis berhenti. Playtime akan lanjut kembali saat player mulai bergerak lagi. Sistem ini juga berlaku di dalam kendaraan, sehingga selama kendaraan bergerak player tidak akan dianggap AFK.
-- Blacklist System, memungkinkan kamu untuk mem-blacklist citizen ID tertentu agar tidak ditampilkan di leaderboard Discord webhook.
-- Auto Save & Load System, playtime akan otomatis tersimpan ke database dan dimuat kembali saat player join, sehingga data tidak akan hilang meskipun server atau script di-restart.
-- Real-Time Leaderboard, sistem leaderboard akan selalu update secara otomatis dengan interval tertentu tanpa perlu restart script, sehingga data selalu sinkron dengan playtime terbaru.
-- Optimized Update System, menggunakan sistem interval dan cooldown untuk mencegah spam SQL query dan menjaga performa server tetap stabil.
-- Persistent Discord Webhook, leaderboard akan di-update ke Discord menggunakan sistem edit message (bukan spam message baru), sehingga lebih rapi dan efisien.
-- Rank & Medal System, leaderboard dilengkapi dengan sistem ranking otomatis (🥇🥈🥉) berdasarkan total playtime player.
-- Auto edit message, tidak spam kirim webhook, jadi 1 pesan webhook di edit setiap berapa detik sekali atau setiap ada perubahan.
+**leaderboard-playingtime** adalah script leaderboard playtime untuk FiveM yang dikembangkan dengan inspirasi dari **PSR-PLAYINGTIME**, namun telah mengalami banyak penyesuaian, perbaikan, dan inovasi sistem.
 
-Exclusive Website : http://exclusiverp.duckdns.org/
+Tujuan dari pengembangan ulang penuh ini adalah untuk menciptakan versi yang:
+- Lebih stabil
+- Lebih optimal
+- Lebih ringan
+- Lebih mudah dipahami
+- Lebih mudah dikembangkan ke depannya
 
-![Show Case](https://cdn.discordapp.com/attachments/1487343201374437407/1500759398816026826/Screenshot_3350.png?ex=69f99a9b&is=69f8491b&hm=4224956763adcd325d0dc50b654ba995fb22b46ec79ce584fec7c2bb44fd64af&)
+---
+
+# ✨ Features
+
+## 🔥 Alpha System
+
+### ✅ Anti AFK System
+Jika player diam selama 10 menit maka player akan dianggap AFK dan playtime otomatis berhenti.
+
+Playtime akan otomatis lanjut kembali saat player mulai bergerak lagi.
+
+Sistem ini juga mendukung kendaraan, sehingga selama kendaraan bergerak player tidak akan dianggap AFK.
+
+---
+
+### ✅ Blacklist System
+Memungkinkan kamu untuk mem-blacklist Citizen ID tertentu agar tidak muncul di leaderboard Discord webhook.
+
+---
+
+### ✅ Auto Save & Load System
+Playtime otomatis tersimpan ke database dan dimuat kembali saat player join.
+
+Data tetap aman meskipun:
+- Server restart
+- Script restart
+- Resource di ensure ulang
+
+---
+
+### ✅ Real-Time Leaderboard
+Leaderboard akan otomatis update dengan interval tertentu tanpa perlu restart script.
+
+Data leaderboard selalu sinkron dengan total playtime terbaru.
+
+---
+
+### ✅ Optimized Update System
+Menggunakan sistem cooldown dan interval untuk:
+- Mengurangi spam SQL query
+- Menjaga performa server tetap stabil
+- Mengurangi beban database
+
+---
+
+### ✅ Persistent Discord Webhook
+Leaderboard Discord menggunakan sistem **edit message**.
+
+Bukan spam mengirim webhook baru setiap update.
+
+Hasil:
+- Lebih rapi
+- Lebih ringan
+- Lebih efisien
+
+---
+
+### ✅ Rank & Medal System
+Leaderboard dilengkapi ranking otomatis:
+
+- 🥇 Rank 1
+- 🥈 Rank 2
+- 🥉 Rank 3
+
+Berdasarkan total playtime player.
+
+---
+
+### ✅ Auto Edit Message
+Webhook Discord akan otomatis mengedit 1 pesan yang sama setiap ada perubahan atau sesuai interval update.
+
+Tidak spam webhook message baru.
+
+---
+
+# 📁 Installation
+
+1. Download resource ini
+2. Masukkan folder ke dalam `resources`
+3. Import SQL yang sudah disediakan
+4. Edit webhook di `config.lua`
+5. Jika ingin ada blacklist ada di `server.lua`
