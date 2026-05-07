@@ -11,23 +11,7 @@ local WEBHOOK_FILE = "webhook.json"
 
 -- FILTER SYSTEM (KALAU EVENT KHUSUS WARGA, BLACKLIST CITIZENID ADMIN BIAR TIDAK MASUK LEADERBOARD) 
 local BLACKLIST_CITIZENID = {
-    ["AGR67206"] = true,
-    ["AXK93169"] = true,
-    ["AXI15588"] = true,
-    ["BBN95311"] = true,
-    ["DUH09774"] = true,
-    ["DXW52901"] = true,
-    ["FHD80859"] = true,
-    ["IVT75569"] = true,
-    ["JAF94374"] = true,
-    ["JDT53066"] = true,
-    ["LEM11381"] = true,
-    ["MRC16966"] = true,
-    ["ORF31848"] = true,
-    ["TRZ39679"] = true,
-    ["TVQ63773"] = true,
-    ["UIK76789"] = true,
-    ["WSU98851"] = true,
+    ["AGR67206"] = true, -- DIGUNAKAN UNTUK BLACKLIST SUPAYA TIDAK MASUK KE TOP LEADERBOARD, BIASANYA UNTUK AKUN ADMIN TIDAK DI IKUT SERTAKAN JIKA EVENT NYA KHUSUS PLAYER
 }
 
 
