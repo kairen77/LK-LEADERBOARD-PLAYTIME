@@ -92,4 +92,6 @@ Tidak spam webhook message baru.
 4. Edit webhook di `config.lua`
 5. Jika ingin ada blacklist ada di `server.lua`
 
+DISCORD SERVER : https://discord.gg/8FDxnTwpV
+
 ![Show Case](https://cdn.discordapp.com/attachments/1487343201374437407/1500759398816026826/Screenshot_3350.png?ex=69f99a9b&is=69f8491b&hm=4224956763adcd325d0dc50b654ba995fb22b46ec79ce584fec7c2bb44fd64af&)
